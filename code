@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace NombreDeVoyelles
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("**** Nombre de Voyelles (v1.0, 3/11/2015) ****");
+            Console.WriteLine("Entrez un mot");
+            String mot = Console.ReadLine();
+            mot.ToLower();
+
+
+            Console.WriteLine("Entrez la voyelle qu'il faut comptabiliser");
+            String voyelleAChercher = Console.ReadLine();
+            voyelleAChercher.ToLower();
+
+
+           // String[] voyelleValide = new String[6] { "a", "e", "i", "o", "u", "y" };
+
+
+            while (!voyelleAChercher.Length.Equals(1) || !voyelleAChercher.Equals("a") & !voyelleAChercher.Equals("e") & !voyelleAChercher.Equals("i") & !voyelleAChercher.Equals("o") & !voyelleAChercher.Equals("u") & !voyelleAChercher.Equals("y"))
+            {
+                Console.WriteLine("Entrez la voyelle qu'il faut comptabiliser");
+                voyelleAChercher = Console.ReadLine();
+                voyelleAChercher.ToLower();
+            }
+
+            int compteur = 0;
+
+            for (int i = 0; i < mot.Length; i++)
+            {
+                String lettreDeMot = Convert.ToString(mot[i]);
+
+                if (lettreDeMot.IndexOf(voyelleAChercher) != -1)
+                {
+                    compteur++;
+                }
+            }
+
+            Console.WriteLine("Le mot {0} contient {1} fois la voyelle {2}", mot, compteur, voyelleAChercher);
+            Console.ReadLine();
+        }
+    }
+}
